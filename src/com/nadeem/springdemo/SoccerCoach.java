@@ -11,4 +11,10 @@ public class SoccerCoach implements Coach {
 		return "Practice your goal kicks for an hour everyday.";
 	}
 
+	@Override
+	public String getDailyFortune() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

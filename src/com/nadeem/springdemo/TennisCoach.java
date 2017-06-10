@@ -1,5 +1,6 @@
 package com.nadeem.springdemo;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 // Default Bean id
@@ -10,6 +11,21 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class TennisCoach implements Coach {
+	
+	@Autowired
+	private FortuneService fortuneService;
+		
+	public TennisCoach(){
+		
+		System.out.println(">> TennisCoach: inside no-arg constructor.");
+	}
+
+//	@Autowired
+//	public void setFortuneService(FortuneService theFortuneService) {
+//		
+//		System.out.println(">> TennisCoach: inside setter method setFortuneService.");
+//		fortuneService = theFortuneService;
+//	}
 
 	@Override
 	public String getDailyWorkout() {
@@ -17,4 +33,15 @@ public class TennisCoach implements Coach {
 		return "Practice your backhand volley.";
 	}
 
+	@Override
+	public String getDailyFortune() {
+		
+		return fortuneService.getDailyFortune();
+	}
+
+//	@Autowired
+//	public TennisCoach(FortuneService theFortuneService){
+//		
+//		fortuneService = theFortuneService;
+//	}
 }
