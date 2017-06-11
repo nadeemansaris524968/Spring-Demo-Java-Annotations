@@ -15,7 +15,7 @@ public class TennisCoach implements Coach {
 	
 	// init
 	@PostConstruct
-	public void doMyStartUpStuff(String str){
+	public void doMyStartUpStuff(){
 		
 		System.out.println(">> TennisCoach: inside doMyStartUpStuff");
 	}
