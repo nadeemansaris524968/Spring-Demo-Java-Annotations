@@ -1,17 +1,31 @@
 package com.nadeem.springdemo;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
-
-// Default Bean id
-// @Component - bean id = tennisCoach
 
 // Explicit Bean id
 //@Component("thatSillyCoach")
 
 @Component
 public class TennisCoach implements Coach {
+	
+	// init
+	@PostConstruct
+	public void doMyStartUpStuff(String str){
+		
+		System.out.println(">> TennisCoach: inside doMyStartUpStuff");
+	}
+	
+	// destroy
+	@PreDestroy
+	public void cleanUp(){
+		
+		System.out.println(">> TennisCoach: inside cleanUp");
+	}
 	
 	@Autowired
 	@Qualifier("randomFortuneService")
